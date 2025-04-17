@@ -8,12 +8,17 @@ export const usersSlice = createSlice({
         isLoading: false
     },
     reducers: {
-        increment: (state, /* action */ ) => {
-            state.counter += 1;
+        startLoadingUsers: (state) => {
+            state.isLoading = true;
+        },
+        setMainUsers: (state, action) => {
+            state.isLoading = false;
+            state.page = action.payload.page;
+            state.users = action.payload.users;
         },
     }
 });
 
 
 // Action creators are generated for each case reducer function
-export const { increment } = usersSlice.actions;
+export const { startLoadingUsers, setMainUsers } = usersSlice.actions;

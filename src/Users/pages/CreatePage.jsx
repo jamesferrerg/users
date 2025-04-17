@@ -2,6 +2,6 @@ import React from 'react'
 
 export const CreatePage = () => {
   return (
-    <div>CreatePage</div>
+    <div className="container">CreatePage</div>
   )
 }

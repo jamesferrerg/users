@@ -1,0 +1,11 @@
+.page-link {
+    color: #68a90f;
+    --bs-pagination-hover-color: #4b7d06;
+}
+
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    color: white;
+    background-color: #68a90f;
+    border-color: #68a90f;
+}
