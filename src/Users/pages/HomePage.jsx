@@ -21,7 +21,13 @@ export const HomePage = () => {
       <hr />
       <br />
       <span>{ isLoading ? 'Loading...' : '' }</span>
-      <UserCard users={users.data} />
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {
+          users.data?.map((user) => (
+            <UserCard user={user} key={user.id} />
+          ))
+        }
+      </div>
       <br />
       <Pagination 
         currentPage={users.page}
