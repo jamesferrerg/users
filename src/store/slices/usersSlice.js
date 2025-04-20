@@ -9,6 +9,9 @@ export const usersSlice = createSlice({
     isLoading: false,
     isLoadingUser: false,
     errorUser: null,
+    isSaving: false,
+    id: null,
+    createdAt: null
   },
   reducers: {
     startLoadingUsers: (state) => {
@@ -34,6 +37,15 @@ export const usersSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
       state.errorUser = null;
+      state.id = null;
+    },
+    startSavingUser: (state) => {
+      state.isSaving = true;
+    },
+    savedUserSuccesfully: (state, action) => {
+      state.isLoading = false;
+      state.id = action.payload.id;
+      state.createdAt = action.payload.createdAt;
     },
   },
 });
@@ -45,4 +57,6 @@ export const {
   setUser,
   setErrorUser,
   clearUser,
+  startSavingUser,
+  savedUserSuccesfully,
 } = usersSlice.actions;

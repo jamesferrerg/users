@@ -1,5 +1,5 @@
 import { usersApi } from "../../api/usersApi";
-import { setMainUsers, startLoadingUsers, startLoadingUser, setUser, setErrorUser } from "./usersSlice"
+import { setMainUsers, startLoadingUsers, startLoadingUser, setUser, setErrorUser, startSavingUser, savedUserSuccesfully } from "./usersSlice"
 
 export const getUsers = ( page ) => {
     return async(dispatch, getState) => {
@@ -22,3 +22,13 @@ export const getUserById = ( userId ) => {
         }
     }
 }
+
+export const savingUser = (name, job) => {
+    return async(dispatch, getState) => {
+        dispatch(startSavingUser());
+
+        const { data } = await usersApi.post('users', {name, job});
+
+        dispatch(savedUserSuccesfully({name: data.name, job: data.job, id: data.id, createdAt: data.createdAt}));
+    }
+} 
