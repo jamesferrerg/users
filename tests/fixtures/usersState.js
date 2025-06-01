@@ -1,3 +1,11 @@
+const user = {
+  id: 1,
+  email: "jhon@reqres.in",
+  first_name: "Jhon",
+  last_name: "Doe",
+  avatar: "https://anything01.com/img01.jpg",
+}
+
 export const initialState = {
   page: 1,
   users: [],
@@ -13,12 +21,19 @@ export const initialState = {
 export const usersListPayload = {
   page: 1,
   users: [
-    {
-      id: 1,
-      email: "jhon@reqres.in",
-      first_name: "Jhon",
-      last_name: "Doe",
-      avatar: "https://anything01.com/img01.jpg",
-    },
+    user,
   ],
 };
+
+export const userPayload = {
+  ...user
+}
+
+export const userErrorPayload = {
+  errorUser: 'User is not loading'
+}
+
+export const userSavedPayload = {
+  id: 1,
+  createdAt: '2025-06-22'
+}
